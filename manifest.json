@@ -1,0 +1,53 @@
+{
+  "name": "Lexure AI - Private Browser AI",
+  "short_name": "Lexure AI",
+  "description": "Private local AI chatbot that runs directly in your browser. No API keys, no tracking.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "theme_color": "#0f172a",
+  "background_color": "#ffffff",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "assets/icons/logo.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/logo.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/logo.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "assets/icons/logo.svg",
+      "sizes": "540x720",
+      "type": "image/svg+xml"
+    }
+  ],
+  "categories": ["productivity"],
+  "shortcuts": [
+    {
+      "name": "New Chat",
+      "short_name": "New Chat",
+      "description": "Start a new conversation with Lexure AI",
+      "url": "/chat.html?new=true",
+      "icons": [
+        {
+          "src": "assets/icons/logo.svg",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ]
+}
