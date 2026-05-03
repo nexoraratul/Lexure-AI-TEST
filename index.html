@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lexure AI - Private AI That Runs in Your Browser</title>
+    <meta name="description" content="Lexure AI is a private, free local AI chatbot that runs directly in your browser. No API keys, no server GPUs, no tracking.">
+    <meta name="theme-color" content="#0f172a">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/svg+xml" href="assets/icons/logo.svg">
+    <link rel="apple-touch-icon" href="assets/icons/logo.svg">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/>
+                </svg>
+                Lexure AI
+            </a>
+            <div class="navbar-menu">
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#how-it-works" class="nav-link">How it Works</a>
+                <a href="privacy.html" class="nav-link">Privacy</a>
+                <a href="chat.html" class="nav-btn">Start Chat</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Private AI That Runs in Your Browser</h1>
+                <p class="hero-subtitle">No API keys. No server GPUs. No tracking. No payments. Just pure local AI power right in your browser.</p>
+                <a href="chat.html" class="cta-button">Start Chatting Free</a>
+                <p class="hero-note">✓ Works offline • ✓ Zero data sent • ✓ Open source model</p>
+            </div>
+            <div class="hero-visual">
+                <div class="chat-window-preview">
+                    <div class="window-header">
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                    <div class="window-content">
+                        <div class="message-item user">Hello Lexure!</div>
+                        <div class="message-item ai">Hi there! I'm running locally in your browser. How can I help?</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="features-container">
+            <h2>Why Choose Lexure AI?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Complete Privacy</h3>
+                    <p>Your conversations never leave your device. No servers, no tracking, no data collection.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Works Offline</h3>
+                    <p>Once the model loads, chat without internet. Perfect for flights, remote areas, and privacy.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💸</div>
+                    <h3>100% Free</h3>
+                    <p>No subscriptions, no API costs, no hidden fees. Open source model runs on your hardware.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h3>Smart Memory</h3>
+                    <p>Save important facts about yourself for the AI to remember in future conversations.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Works Everywhere</h3>
+                    <p>Desktop, tablet, mobile. Responsive design that works on any device with a modern browser.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚙️</div>
+                    <h3>Full Control</h3>
+                    <p>Export conversations, manage history, clear data anytime. You control everything.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="how-container">
+            <h2>How It Works</h2>
+            <div class="steps">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <h3>Browser Download</h3>
+                    <p>First time you visit, your browser downloads the AI model (about 500MB). This happens once.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <h3>Run Locally</h3>
+                    <p>The model runs inside your browser using WebLLM. No data sent anywhere. Everything stays local.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <h3>Chat Privately</h3>
+                    <p>Chat naturally. Your conversations are saved only in your device's storage. You own your data.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">4</div>
+                    <h3>Works Offline</h3>
+                    <p>After the first load, chat without internet. Perfect for privacy-conscious users everywhere.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Privacy-First Section -->
+    <section class="privacy-section">
+        <div class="privacy-container">
+            <h2>Privacy-First by Design</h2>
+            <div class="privacy-content">
+                <div class="privacy-item">
+                    <h3>🔐 End-to-End Private</h3>
+                    <p>Your messages are processed locally on your device. No server involvement whatsoever.</p>
+                </div>
+                <div class="privacy-item">
+                    <h3>📊 Zero Tracking</h3>
+                    <p>No analytics, no telemetry, no cookies tracking your behavior or conversations.</p>
+                </div>
+                <div class="privacy-item">
+                    <h3>💾 Local Storage Only</h3>
+                    <p>All chat history, memory, and settings stay in your browser's IndexedDB. Full user control.</p>
+                </div>
+                <div class="privacy-item">
+                    <h3>🔓 Open Source</h3>
+                    <p>Using open-source Llama 3.2 model. No proprietary black boxes. You can audit the code.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Device Compatibility Section -->
+    <section class="compatibility">
+        <div class="compatibility-container">
+            <h2>Device Compatibility</h2>
+            <div class="browser-list">
+                <div class="browser-item">
+                    <span class="browser-name">✓ Chrome/Chromium</span>
+                    <span class="browser-note">Latest versions with WebGPU support</span>
+                </div>
+                <div class="browser-item">
+                    <span class="browser-name">✓ Microsoft Edge</span>
+                    <span class="browser-note">Full WebLLM support</span>
+                </div>
+                <div class="browser-item">
+                    <span class="browser-name">✓ Modern Browsers</span>
+                    <span class="browser-note">Any recent browser with WebAssembly</span>
+                </div>
+                <div class="browser-item">
+                    <span class="browser-name">⚠️ Firefox</span>
+                    <span class="browser-note">Limited WebGPU support, may use fallback</span>
+                </div>
+            </div>
+            <p class="compatibility-note">Requires modern browser with WebAssembly and ~1GB free storage for first-time model download.</p>
+        </div>
+    </section>
+
+    <!-- Pro Cloud Mode Section -->
+    <section class="pro-section">
+        <div class="pro-container">
+            <h3>Future: Pro Cloud Mode</h3>
+            <p>Coming soon: Combine local privacy with cloud power. Bigger models, faster responses, GPU acceleration—all while maintaining your privacy choice.</p>
+            <button class="coming-soon-btn" disabled>Pro Cloud Mode (Coming Soon)</button>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="faq-container">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h4>Can I use this offline?</h4>
+                    <p>Yes! After the initial model download, Lexure AI works completely offline. Perfect for privacy and areas without internet.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Is my data really private?</h4>
+                    <p>100% private. Your device processes everything locally. No messages go to any server or cloud service.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>How large is the model?</h4>
+                    <p>About 500MB for our current model. After download, it stays in your browser cache for instant offline use.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Can I export my conversations?</h4>
+                    <p>Yes! Export as TXT or JSON anytime. You own all your data and can delete it whenever you want.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>What model does Lexure use?</h4>
+                    <p>Llama 3.2 1B Instruct model via WebLLM. Open source, efficient, and runs on modest hardware.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Will there be a paid version?</h4>
+                    <p>The local mode is and will always be free. Pro Cloud Mode with bigger models is coming soon as optional.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Lexure AI. Free local AI for everyone.</p>
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="https://github.com" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+
+        // Register service worker
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js').catch(err => {
+                console.log('Service Worker registration failed:', err);
+            });
+        }
+    </script>
+</body>
+</html>

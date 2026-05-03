@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat - Lexure AI</title>
+    <meta name="theme-color" content="#0f172a">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/svg+xml" href="assets/icons/logo.svg">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="chat-page">
+    <!-- Mobile Header -->
+    <header class="mobile-header">
+        <button class="menu-toggle" id="menuToggle">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+        </button>
+        <h1 class="mobile-title">Lexure AI</h1>
+        <button class="settings-toggle" id="settingsToggle">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="1"></circle>
+                <circle cx="19" cy="12" r="1"></circle>
+                <circle cx="5" cy="12" r="1"></circle>
+            </svg>
+        </button>
+    </header>
+
+    <div class="chat-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <button class="new-chat-btn" id="newChatBtn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                    New Chat
+                </button>
+            </div>
+
+            <div class="conversations-list" id="conversationsList">
+                <p class="empty-state">No conversations yet. Start a new chat!</p>
+            </div>
+
+            <div class="sidebar-footer">
+                <button class="memory-btn" id="memoryBtn">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                    Memory
+                </button>
+                <a href="index.html" class="home-btn">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                    Home
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Chat Area -->
+        <main class="chat-main">
+            <!-- Model Loading Progress -->
+            <div class="model-loading" id="modelLoading" style="display: none;">
+                <div class="loading-container">
+                    <div class="spinner"></div>
+                    <p id="loadingStatus">Loading AI model...</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <p id="loadingDetails" class="loading-details"></p>
+                </div>
+            </div>
+
+            <!-- Browser Support Check -->
+            <div class="browser-warning" id="browserWarning" style="display: none;">
+                <div class="warning-card">
+                    <h2>⚠️ Browser Not Supported</h2>
+                    <p>Your browser doesn't support WebGPU or WebAssembly.</p>
+                    <p>Please use:</p>
+                    <ul>
+                        <li>Chrome 121+ or Edge 121+</li>
+                        <li>Enable WebGPU in browser flags if needed</li>
+                    </ul>
+                    <a href="index.html" class="back-btn">Go Back Home</a>
+                </div>
+            </div>
+
+            <!-- Chat Window -->
+            <div class="chat-window" id="chatWindow">
+                <!-- Messages will be inserted here -->
+                <div class="empty-chat-state" id="emptyChatState">
+                    <div class="empty-state-content">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/>
+                        </svg>
+                        <h2>Welcome to Lexure AI</h2>
+                        <p>Start a conversation to begin. Your chats are saved locally and never sent anywhere.</p>
+                        <div class="suggested-prompts">
+                            <button class="prompt-btn" onclick="document.getElementById('messageInput').value = 'What can you help me with?'; document.getElementById('sendBtn').click();">What can you help me with?</button>
+                            <button class="prompt-btn" onclick="document.getElementById('messageInput').value = 'Tell me about yourself'; document.getElementById('sendBtn').click();">Tell me about yourself</button>
+                            <button class="prompt-btn" onclick="document.getElementById('messageInput').value = 'How does local AI work?'; document.getElementById('sendBtn').click();">How does local AI work?</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat Input -->
+            <div class="chat-input-area">
+                <div class="input-wrapper">
+                    <textarea id="messageInput" class="message-input" placeholder="Type your message... (Shift+Enter for new line)" rows="1"></textarea>
+                    <button class="send-btn" id="sendBtn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M16.6915026,12.4744748 L3.50612381,13.2599618 C3.19218622,13.2599618 3.03521743,13.4170592 3.03521743,13.5741566 L1.15159189,20.0151496 C0.8376543,20.8006365 0.99,21.89 1.77946707,22.52 C2.41,22.99 3.50612381,23.1 4.13399899,22.8429026 L21.714504,14.0454487 C22.6563168,13.5741566 23.1272231,12.6315722 22.9702544,11.6889879 L4.13399899,1.16865479 C3.34915502,0.9115573 2.40734225,1.02397448 1.77946707,1.4952666 C0.994623095,2.13399899 0.837654326,3.22638904 1.15159189,3.89227952 L3.03521743,10.3332725 C3.03521743,10.4903699 3.19218622,10.6474673 3.50612381,10.6474673 L16.6915026,11.4329542 C16.6915026,11.4329542 17.1624089,11.4329542 17.1624089,12.0016457 C17.1624089,12.5703372 16.6915026,12.4744748 16.6915026,12.4744748 Z"/>
+                        </svg>
+                    </button>
+                </div>
+                <p class="input-hint">Local AI mode • Your chats stay private</p>
+            </div>
+        </main>
+    </div>
+
+    <!-- Memory Manager Modal -->
+    <div class="modal" id="memoryModal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Memory Manager</h2>
+                <button class="modal-close" id="closeMemoryBtn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p class="modal-info">Save facts about yourself so the AI remembers them in future conversations.</p>
+                <div class="memory-form">
+                    <textarea id="memoryInput" class="memory-input" placeholder="e.g., I work as a software engineer, I prefer Python over JavaScript..."></textarea>
+                    <button class="memory-add-btn" id="addMemoryBtn">Add to Memory</button>
+                </div>
+                <div class="memory-list" id="memoryList">
+                    <p class="empty-state">No memory saved yet.</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="clear-memory-btn" id="clearMemoryBtn">Clear All Memory</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div class="modal" id="settingsModal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Settings</h2>
+                <button class="modal-close" id="closeSettingsBtn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="settings-group">
+                    <label>Model Selection</label>
+                    <select id="modelSelect" class="model-select">
+                        <option value="llama3.2-1b">⚡ Fast Mode (1B - Recommended)</option>
+                        <option value="coming-soon-2" disabled>🚀 Balanced Mode (Coming Soon)</option>
+                        <option value="coming-soon-3" disabled>✨ Better Quality (Coming Soon)</option>
+                    </select>
+                </div>
+
+                <div class="settings-group">
+                    <label>Theme</label>
+                    <select id="themeSelect" class="theme-select">
+                        <option value="dark">Dark</option>
+                        <option value="light">Light</option>
+                        <option value="auto">Auto (System)</option>
+                    </select>
+                </div>
+
+                <div class="settings-group">
+                    <label>Chat Options</label>
+                    <button class="settings-btn" id="exportChatBtn">Export Current Chat</button>
+                    <button class="settings-btn danger" id="clearChatBtn">Clear Current Chat</button>
+                </div>
+
+                <div class="settings-group">
+                    <label>Data Management</label>
+                    <button class="settings-btn" id="exportAllBtn">Export All Chats (JSON)</button>
+                    <button class="settings-btn danger" id="clearAllBtn">Delete All Conversations</button>
+                </div>
+
+                <div class="settings-group pro-section">
+                    <label>Pro Features (Future)</label>
+                    <button class="settings-btn coming-soon-btn" disabled>Cloud Mode (Coming Soon)</button>
+                    <p class="coming-soon-text">Faster responses with larger models while maintaining your privacy choice.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overlay -->
+    <div class="modal-overlay" id="modalOverlay" style="display: none;"></div>
+
+    <script src="assets/js/db.js"></script>
+    <script src="assets/js/memory.js"></script>
+    <script src="assets/js/ui.js"></script>
+    <script src="assets/js/llm.js"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
